@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JG.Dev : Jacob's Software Engineering Portfolio</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class = "logo">JG.Dev: Jacob's Engineering Portfolio</h1>
+     <ul class="nav-links">
+      <li><a href="/about">About Me</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="{{ url_for('weather.weather') }}">Weather</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/account">Create Account</a></li>
+    </ul>
+
+    </nav>
+  </header>
+
+  <main>
+   
+   <div class = "text-box">
+    <p> Hi, I'm Jacob, thank you for visiting my page!</p>
+   </div>
+      <div class="text-box">
+        <p>I am a senior CS student, graduating in December. My main interests lie in 
+          embedded systems, technical project management, data engineering and more. 
+          Below are a few snippets of my professional experience. To learn more, navigate
+          to the About me tab above!
+        </p>       
+        </div>
+        <div class="experience-box">
+          <p>Current CO-OP Intern at VW Chattanooga</p>
+        </div>
+      
+        <div class="experience-box">
+          <p>Previous International Intern with Daher Aerospace in Tarbes, France</p>
+        </div>
+  </main>
+</body>

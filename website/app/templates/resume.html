@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jacob Graham - Resume</title>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='resume.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">JG.Dev - Resume</h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="{{ url_for('weather.weather') }}">Weather</a></li>
+        <li><a href="/account">Account</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="text-box">
+      <h2>Resume</h2>
+
+      <p>
+        EDUCATION<br />
+        University of Tennessee at Chattanooga<br />
+        Bachelor of Science in Computer Science: Software Systems Engineering<br />
+        Minor: Business Administration<br />
+        GPA: 3.2 | Projected Graduation: December 2025<br />
+        Relevant Coursework: Software Engineering, Database Management, Computer Architecture
+      </p>
+
+      <p>
+        EXPERIENCE<br />
+        Volkswagen Group of America — Chattanooga, TN<br />
+        Inbound Logistics CO-OP Intern | May 2025 – Present<br />
+        At Volkswagen, I have been responsible for supporting inbound logistics and materials planning operations in a fast-paced manufacturing environment. I am working to develop a SharePoint platform designed to track and manage obsolete parts, which improve visibility and control of the supply chain. I am gaining hands-on experience with SAP Materials Management (MM) to assist procurement and inventory processes. This role requires regular cross-functional collaboration within an international corporate setting, allowing me to sharpen my communication and teamwork skills.
+      </p>
+
+      <p>
+        Daher Aerospace Internship — Tarbes, France<br />
+        International Technical Support Intern | May 2023–July 2023<br />
+        During my internship with Daher Aerospace, I contributed to avionics, logistics, and customer service efforts at an international aerospace manufacturer. I designed and implemented an electronic upgrade and retrofit request system for the TBM Care Team, streamlining customer support workflows and improving efficiency. I assisted avionics engineers with troubleshooting flight software and making configuration updates.
+      </p>
+
+      <p>
+        LEADERSHIP & PROJECTS<br />
+        Team Lead / Product Owner | Software Engineering Course Project—Spring 2025<br />
+        I led a team of students in designing an agile framework for a Mars surface mission planning and logistics simulator. During this project, I created and managed user stories, task assignments, and development milestones. I also facilitated regular meetings and ensured project progress and alignment with specifications.
+      </p>
+
+      <p>
+        SKILLS<br />
+        Programming Languages: Python, Java, R<br />
+        Databases & Tools: MySQL, phpMyAdmin, DBeaver, Flask<br />
+        Technical Tools: SAP (MM), Power BI, VBA, Microsoft Excel, SharePoint<br />
+        Web Development: HTML, CSS, Bootstrap
+      </p>
+
+      <h3>Download my resume:</h3>
+      <a href="{{ url_for('static', filename='resume7.pdf') }}" download>Download Resume PDF</a>
+
+      <h3>View Resume PDF:</h3>
+      <embed src="{{ url_for('static', filename='resume7.pdf') }}" type="application/pdf" width="90%" height="700px" />
+    </section>
+  </main>
+</body>
+</html>

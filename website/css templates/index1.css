@@ -1,0 +1,128 @@
+/* Global styles */
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  font-weight: bold;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e293b; /* slightly lighter dark blue */
+  padding: 1rem 2rem;
+}
+
+/* Logo / Header */
+.logo, .navbar h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f97316;
+  margin: 0;
+}
+
+/* Navigation link list */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation links styled as buttons */
+.nav-links li a {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: #0f172a;
+  color: white;
+  border-radius: 8px;
+  border: 2px solid #f97316;
+  outline: none;
+  box-shadow: none;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.nav-links li {
+  flex: 1;
+}
+
+.nav-links li a:hover {
+  background-color: #f97316; /* bright orange */
+  color: white;
+  cursor: pointer;
+}
+
+/* Main content section */
+.main {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+/* Text box styling */
+.text-box {
+  max-width: 700px;           /* fixed max width */
+  width: 90%;                 /* responsive width */
+  margin: 60px auto 20px auto; /* top 60px, bottom 20px, auto left/right for centering */
+  border: 2px solid #f97316;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  font-size: 16px;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+/* Extra spacing for paragraphs inside the box */
+.text-box p {
+  margin-bottom: 1em;
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+/* Proper styling for list inside the box */
+.text-box ul {
+  padding-left: 20px; /* indent bullet points */
+  margin-bottom: 1em;
+}
+
+.text-box li {
+  margin-bottom: 0.5em; /* spacing between list items */
+}
+
+/* Shared box styling */
+.text-box, .experience-box {
+  border: 2px solid #f97316;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 80px auto 20px auto;
+  max-width: 700px;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  box-sizing: border-box;
+}
+
+/* Specific styling for each experience box */
+.experience-box {
+  font-size: 16px;
+  line-height: 1.4;
+}

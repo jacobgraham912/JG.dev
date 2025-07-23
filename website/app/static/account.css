@@ -1,0 +1,94 @@
+/* resume.css */
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #1F1F1F;
+  color: whitesmoke;
+  font-weight: bold;
+  padding: 2rem;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  color: #38bdf8;
+  margin-bottom: 2rem;
+}
+
+/* PDF embed container */
+.pdf-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+embed {
+  border: 2px solid #38bdf8;
+  border-radius: 10px;
+  width: 90%;
+  height: 800px;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+/* Download link */
+.download-link {
+  display: block;
+  margin: 1rem auto 3rem auto;
+  text-align: center;
+  font-size: 18px;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: bold;
+  width: max-content;
+  border: 2px solid #38bdf8;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.download-link:hover {
+  background-color: #f97316;
+  color: white;
+  border-color: #f97316;
+  cursor: pointer;
+}
+
+/* Resume text block */
+.resume-text {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  font-size: 18px;
+  white-space: pre-wrap;
+  text-align: left;
+  color: whitesmoke;
+  line-height: 1.6;
+}
+
+/* Headings inside resume-text */
+.resume-text h2, .resume-text h3 {
+  color: #38bdf8;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Paragraphs inside resume-text */
+.resume-text p {
+  margin-bottom: 1rem;
+}
+
+/* Lists inside resume-text */
+.resume-text ul {
+  padding-left: 20px;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+}
+
+.resume-text li {
+  margin-bottom: 0.5rem;
+}

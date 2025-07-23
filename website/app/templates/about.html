@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Me - JG.Dev</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <h1 class="logo">JG.Dev - About Me</h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/resume">Resume</a></li>
+        <li><a href="{{ url_for('weather.weather') }}">Weather</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/account">Create Account</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="text-box">
+      <h2>About Me</h2>
+      <p>
+        My name is Jacob Graham, and I’m a Computer Science student graduating in December. My main areas of interest are embedded systems and machine learning, and I’m especially passionate about applying them to real-world challenges like space instrumentation and environmental sensing.
+      </p>
+      <p>
+        I’m currently interning at Volkswagen in Chattanooga, where I’ve been able to strengthen my technical skills while also working on independent projects that showcase my growth as a developer. One of those projects is Ultron — a machine learning classifier that predicts whether an exoplanet may be Earth-like.
+      </p>
+      <p>
+        In my Software Engineering course, I served as both the Product Owner and Project Manager for a team tasked with designing a Mars mission planner and simulator. I led the development of a detailed blueprint for the system, which was designed to assist future mission planning by simulating key logistical, scientific, and cost factors. The goal was to enable researchers and engineers to optimize payload configurations, surface operations, and mission timelines while reducing overall mission cost and complexity.
+      </p>
+      <p>
+        Right now, I’m focused on building a strong foundation in Python, and I’m also starting to learn C++ to prepare for deeper work in embedded systems. I’m always curious, always learning, and committed to developing systems that blend software, hardware, and scientific inquiry.
+      </p>
+      <p>
+        While I am an intern currently, I am in search of a full time job post graduation, feel free to contact me!
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Jacob Graham | JG.Dev
+  </footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='projects.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}?v=1">
+
+</head>
+<body>
+   <header>
+  <div class="navbar">
+    <h1 class="logo">JG.Dev - Projects</h1>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="{{ url_for('weather.weather') }}">Weather</a></li>
+      <li><a href="/about">About Me</a></li>
+      <li><a href="/account">Create Account</a></li>
+    </ul>
+  </div>
+</header>
+
+
+    <main>
+        <section>
+            <h2>Welcome to My Projects Page!</h2>
+            <p>Currently, I only have one main project here, but I have plans for many more—stay tuned!</p>
+        </section>
+
+        <section class="project">
+            <h3>Ultron - Exoplanet Habitability Classifier</h3>
+            <p>Machine learning model using decision trees to predict Earth-like exoplanets based on parameters like radius, mass, and stellar flux. Built with Python and Scikit-learn.</p>
+        </section>
+    </main>
+</body>
+</html>

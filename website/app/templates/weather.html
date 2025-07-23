@@ -1,0 +1,127 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='weather.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <h1 class="logo">JG.Dev - Weather</h1>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="{{ url_for('weather.weather') }}">Weather</a></li>
+      <li><a href="/about">About Me</a></li>
+      <li><a href="/projects">Projects</a></li>
+    </ul>
+  </nav>
+
+  <div class="weather-box">
+    <h2>Local Weather</h2>
+
+    <div style="margin-bottom: 1rem;">
+      <input
+        type="text"
+        id="cityInput"
+        placeholder="Enter city name"
+        style="padding: 10px; font-size: 16px; width: 60%; max-width: 300px; border-radius: 8px; border: 2px solid #38bdf8;"
+      />
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <button id="getLocalBtn" style="margin-bottom: 2rem;">Get My Weather (Current Location)</button>
+
+    <div id="weatherDisplay" style="max-width: 400px; margin: 0 auto;"></div>
+  </div>
+
+  <script>
+    const weatherDisplay = document.getElementById('weatherDisplay');
+    const cityInput = document.getElementById('cityInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const getLocalBtn = document.getElementById('getLocalBtn');
+
+    function displayWeather(data) {
+      if (data.error) {
+        weatherDisplay.innerHTML = `<p style="color:#38bdf8; font-weight:bold;">${data.error}</p>`;
+        return;
+      }
+
+      weatherDisplay.innerHTML = `
+        <div class="card" style="background-color: ##1F1F1F; color: #e2e8f0; padding: 20px; border-radius: 10px; border: 2px solid #38bdf8;">
+          <h3>${data.location}</h3>
+          <p>Temperature: ${data.temp} °F</p>
+          <p>Condition: ${data.condition}</p>
+          <p>Humidity: ${data.humidity}%</p>
+          <p>Wind Speed: ${data.wind_speed} mph</p>
+        </div>
+      `;
+    }
+
+    function fetchWeatherByCoords(lat, lon) {
+      weatherDisplay.innerHTML = `<p>Fetching weather data...</p>`;
+      fetch(`/get_weather?lat=${lat}&lon=${lon}`)
+        .then(res => res.json())
+        .then(displayWeather)
+        .catch(() => {
+          weatherDisplay.innerHTML = `<p style="color:#38bdf8;">Failed to retrieve weather data.</p>`;
+        });
+    }
+
+    function fetchWeatherByCity(city) {
+      weatherDisplay.innerHTML = `<p>Fetching weather data...</p>`;
+      fetch(`/get_weather_by_city?city=${encodeURIComponent(city)}`)
+        .then(res => res.json())
+        .then(displayWeather)
+        .catch(() => {
+          weatherDisplay.innerHTML = `<p style="color:#f97316;">Failed to retrieve weather data.</p>`;
+        });
+    }
+
+    // Search button click
+    searchBtn.addEventListener('click', () => {
+      const city = cityInput.value.trim();
+      if (!city) {
+        weatherDisplay.innerHTML = `<p style="color:#f97316;">Please enter a city name.</p>`;
+        return;
+      }
+      fetchWeatherByCity(city);
+    });
+
+    // Enter key triggers search
+    cityInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        searchBtn.click();
+      }
+    });
+
+    // Get local weather button
+    getLocalBtn.addEventListener('click', () => {
+      if (!navigator.geolocation) {
+        weatherDisplay.innerHTML = `<p style="color:#f97316;">Geolocation is not supported by your browser.</p>`;
+        return;
+      }
+      weatherDisplay.innerHTML = `<p>Fetching location...</p>`;
+      navigator.geolocation.getCurrentPosition(
+        pos => fetchWeatherByCoords(pos.coords.latitude, pos.coords.longitude),
+        () => {
+          weatherDisplay.innerHTML = `<p style="color:#f97316;">Location access denied.</p>`;
+        }
+      );
+    });
+
+    // Auto-fetch local weather on page load
+    window.addEventListener('load', () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          pos => fetchWeatherByCoords(pos.coords.latitude, pos.coords.longitude),
+          () => {
+            weatherDisplay.innerHTML = `<p style="color:#f97316;">Enable location to get local weather, or search by city above.</p>`;
+          }
+        );
+      } else {
+        weatherDisplay.innerHTML = `<p style="color:#f97316;">Geolocation not supported. Please search by city.</p>`;
+      }
+    });
+  </script>
+</body>
+</html>
